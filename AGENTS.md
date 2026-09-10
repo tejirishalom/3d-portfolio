@@ -26,6 +26,8 @@ ecosystem, Tailwind CSS\
 -   3D development
 -   Branding and visual design
 -   Technical experiments
+-   Automation workflows
+
 
 Photography and video are outside the intended portfolio scope.
 
@@ -167,7 +169,7 @@ lighting, interaction, and precision**.
 
 Primary colors:
 
--   Blue
+-   dark-Blue
 -   White
 
 Supporting accents:
@@ -196,7 +198,7 @@ When changing the palette:
 -   Ensure 3D lighting/material colors harmonize with the UI.
 -   Do not introduce arbitrary colors for individual components.
 
-A new color should have a reason.
+A new color should have a reason and match my branding .
 
 ------------------------------------------------------------------------
 

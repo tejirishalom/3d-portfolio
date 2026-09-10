@@ -1,11 +1,24 @@
+import { useCallback, useState } from "react"
+import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
+import WebsiteLoader from "./components/WebsiteLoader"
+import Hero from "./Sections/Hero"
 
 const App = () => {
-  return (
+  const [sceneReady, setSceneReady] = useState(false)
 
-     <Navbar />
-    
- 
+  const handleSceneReady = useCallback(() => {
+    setSceneReady(true)
+  }, [])
+
+  return (
+    <>
+      <WebsiteLoader ready={sceneReady} />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Hero onSceneReady={handleSceneReady} />} />
+      </Routes>
+    </>
   )
 }
 

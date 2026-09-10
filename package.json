@@ -13,8 +13,10 @@
     "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
     "@types/three": "^0.185.4",
+    "leva": "^0.10.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-responsive": "^10.0.1",
     "react-router-dom": "^7.18.2",
     "three": "^0.185.1"
   },
