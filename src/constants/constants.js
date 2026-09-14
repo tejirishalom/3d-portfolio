@@ -203,16 +203,15 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
   return {
     deskScale: isSmall ? 0.048 : isMobile ? 0.055 : isTablet ? 0.06 : 0.065,
     deskPosition: isSmall
-      ? [0, -4.25, 0]
+      ? [0, -5.25, 0]
       : isMobile
-        ? [0.25, -4.6, 0]
+        ? [0.25, -3.6, 0]
         : isTablet
           ? [0.25, -5.05, 0]
-          : [0.25, -5.5, 0],
+          : [0.25, -8.25, 0],
     cubePosition: isSmall ? [4, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
-    reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
-    ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
-    targetPosition: isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
+    reactLogoPosition: isSmall ? [3, 2.5, 0] : isMobile ? [5, 2.5, 0] : isTablet ? [7, 2.5, 0] : [9, 2.5, 0],
+    ringPosition: isSmall ? [-3.5, 2.5, 5] : isMobile ? [-5.5, 7, 5] : isTablet ? [-9, 4.5, 5] : [-12, 4.5, 5],
   };
 };
 
@@ -220,9 +219,9 @@ export const workExperiences = [
   {
     id: 1,
     name: 'Flux creative Technologies',
-    pos: 'Intern',
+    pos: 'Product Design Intern',
     duration: '2026',
-    title: "Flux creative Technologies is a tech startup that specializes in tech solutions for Nigerian bussinesses. they are a team of people who have the same goal as I do",
+    title: "Flux creative Technologies is a tech startup that specializes in tech solutions for Nigerian bussinesses. I learnt real world design concepts and skills. ",
     icon: '/assets/flux.png',
     animation: 'victory',
   },

@@ -7,15 +7,33 @@ Source: https://sketchfab.com/3d-models/need-some-space-d6521362b37b48e3a82bce49
 Title: Need some space?
 */
 
-import { useGLTF } from '@react-three/drei'
+import { useGLTF } from '../lib/useGLTF'
 import { useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
-export default function Space(props) {
+const Space = (props) => {
   const { nodes, materials } = useGLTF('/models/need_some_space.glb')
   const spaceRef = useRef()
 
+  // Create one looping tween for the model. Creating this inside useFrame
+  // would create a new infinite tween on every rendered frame.
+  useGSAP(() => {
+    if (!spaceRef.current) return
+
+    gsap.to(spaceRef.current.position, {
+      x: 0.5,
+      duration: 5,
+      repeat: -0.05,
+      yoyo: true,
+      ease: 'power1.inOut',
+    })
+  }, { dependencies: [] })
+
   useFrame(({ pointer }, delta) => {
+    if (!spaceRef.current) return
+
     const targetRotationX = pointer.y * 0.2
     const targetRotationY = pointer.x * 0.35
 
@@ -36,4 +54,4 @@ export default function Space(props) {
     </group>
   )
 }
-
+export default Space

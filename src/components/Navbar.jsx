@@ -23,7 +23,7 @@ const Navbar = () => {
      <div className="max-w-7xl mx-auto">
       <div className="flex justify-between items-center py-5 mx-auto c-space">
         <Link to="/" className="text-blue-400 font-bold text-xl hover:text-blue-400/90 transition-colors">
-          Shalom.Co
+          Shalom.co
         </Link>
         
         <div onClick= {toggleMenu} className="toggleMenu">

@@ -6,6 +6,8 @@
 
 * {
   scroll-behavior: smooth;
+  scrollbar-color: rgb(38, 91, 144);
+  scrollbar-width: auto;
 }
 
 body {
@@ -114,15 +116,15 @@ body {
 
   /* button component */
   .btn {
-    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
+    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md  transition-all active:scale-95 text-white mx-auto;
   }
 
   .btn-ping {
-    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-beige-300/100 opacity-75;
   }
 
   .btn-ping_dot {
-    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+    @apply relative inline-flex rounded-full h-3 w-3 bg-beige-300/90;
   }
 
   /* hero section */
@@ -131,12 +133,16 @@ body {
   }
 
   /* about section */
+  .about_tag {
+    @apply text-center xl:text-2xl md:text-3xl sm:text-2xl text-3xl font-generalsans font-black !leading-normal;
+  }
+
   .grid-container {
-    @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+    @apply w-full h-full border border-black-300 bg-blue/90 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
   }
 
   .grid-headtext {
-    @apply text-xl font-semibold mb-2 text-white font-generalsans;
+    @apply text-xl font-semibold mb-2 text-white-700 font-generalsans;
   }
 
   .grid-subtext {

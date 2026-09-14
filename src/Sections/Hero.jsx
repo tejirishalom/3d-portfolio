@@ -6,6 +6,12 @@ import CanvasLoader from '../components/CanvasLoader'
 import { useMediaQuery } from 'react-responsive'
 import { calculateSizes } from '../constants/constants'
 import Space from '../components/Space'
+import ReactLogo from '../components/ReactLogo'
+import Cube from '../components/Cube'
+import Rings from '../components/Ring'
+import { Link } from 'react-router-dom'
+import Button from '../components/Button'
+import About from './About'
 
 
 const Hero = ({ onSceneReady }) => {
@@ -21,14 +27,15 @@ const Hero = ({ onSceneReady }) => {
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet)
   return (
-    <section className="h-screen w-full flex flex-col gap-1 relative overflow-hidden">
-        <div className="relative z-10 w-full mx-auto flex flex-col lg:mt-48 sm:mt-36 mt-20 pointer-events-none">
+    <>
+      <section className="h-[120vh] w-full flex flex-col relative overflow-hidden">
+        <div className="relative z-10 w-full h-full mx-auto my-auto flex flex-col lg:mt-48 sm:mt-36 mt-20 pointer-events-none">
             <p className='sm:text-3xl text-2xl text-white-700 text-center font-generalsans'>Hi, I am Shalom <span className='waving-hand'>👋</span></p>
             <h1 className='hero_tag sm:text-6xl text-4xl text-white-700 text_gradient font-bold text-center font-generalsans'>“Dream Big, </h1>
             <span className='hero_tag_line sm:text-xl text-2xl text-white-700/90  font-bold text-center font-generalsans'>Leave The Rest of the Product to Me. „</span>
         </div>
       
-      <div className="absolute inset-0 z-0 w-full h-screen">
+      <div className="absolute inset-0 z-0 my-2 w-full h-screen">
         <Canvas
           className='w-full h-full'
           camera={{ position: [0, 0, 30], fov: 36 }}
@@ -46,16 +53,34 @@ const Hero = ({ onSceneReady }) => {
               scale={sizes.deskScale}
               onReady={handleMainSceneReady}
             />
+
+            <group>
+              <ReactLogo position={sizes.reactLogoPosition}/>
+              <Cube position ={sizes.cubePosition} rotation={[0, -Math.PI / 2, 0 ]}/>
+              <Rings position ={sizes.ringPosition} />
+            </group>
           </Suspense>
 
           {mainSceneReady && (
             <Suspense fallback={null}>
-              <Space position={[-50, -20, 0]} rotation={[0.55, -Math.PI, 0]} />
+              <Space position={[-50, -20, 0]} />
             </Suspense>
           )}
         </Canvas>
       </div>
+    <div className="absolute bottom-7 left-0 right-0 w-full gap-5 z-0 c-space">
+      <Link to='/contact' className='w-fit bg-blue'>
+          <Button name="Work with me" isBeam containerClass="sm:w-fit w-full sm:min-w-96 bg-sky-800/90" />
+      </Link>
+      <br/>
+      <Link to='/projects'>
+          <Button name='View projects' containerClass="sm:w-fit w-full sm:min-w-96 bg-inherit border border-sky-800/90" /> 
+      </Link>
+    </div>      
     </section>
+    <About />
+    </>
+    
   )
 }
 
