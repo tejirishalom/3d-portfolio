@@ -9,58 +9,56 @@ export const navLinks = [
     name: 'About',
     path: '/about',
   },
-  {
+   {
     id: 3,
-    name: 'Work',
-    path: '/work',
-  },
-  {
-    id: 5,
     name: 'Projects',
     path: '/projects',
-  },
+  }, 
   {
-    id: 6,
+    id: 4,
     name: 'Github repo',
     path: '/github',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Talk to me',
     path: '/contact',
   },
+ 
+  
+ 
 
 ];
 
 export const clientReviews = [
   {
     id: 1,
-    name: 'Bidemi Ola',
-    position: 'Marketing Director at Creative Solutions',
-    img: 'assets/review1.png',
+    name: 'Tobore Ejoma',
+    position: 'Manager, Unicus Campus',
+    img: 'assets/review.jpg',
     review:
-      'Working with Shalom was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
+      'Teaching Shalom at Unicus fantastic experience. He displayed dedication to work and profesionalism during his 1yr stay with us.His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
   },
   {
     id: 2,
     name: 'Serome Ejoma',
-    position: 'Manager Unicus Tech',
-    img: 'assets/review2.png',
+    position: 'Staff, Unicus Campus',
+    img: 'assets/review2.jpg',
     review:
-      'Shalom’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
+      'Shalom’s expertise in web development is truly impressive. He has great work ethic and elite problem solving techniques. He’s a true professional! Fantastic work.',
   },
   {
     id: 3,
     name: 'Timothy Miyesengha',
-    position: 'Founder of Flux Creative Technologies',
-    img: 'assets/review3.png',
+    position: 'Founder, Flux Creative Technologies',
+    img: 'assets/review3.jpg',
     review:
-      'I can’t say enough good things about Shalom. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
+      'I can’t say enough good things about Shalom. He was able to take our complex project requirements and turn them into a seamless, functional UI. His problem-solving abilities are outstanding.',
   },
   {
     id: 4,
     name: 'Ether Smith',
-    position: 'CEO of Jeun Resturant Nigeria',
+    position: 'CEO, Jeun Resturant Nigeria',
     img: 'assets/review4.png',
     review:
       'Shalom was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in frontend dev are top-notch.',
@@ -70,11 +68,11 @@ export const clientReviews = [
 export const myProjects = [
   {
     title: 'Jeun Resturant - AI-Powered Restaurant Website',
-    desc: 'Jeun Resturant is a revolutionary Software-as-a-Service platform that transforms the way restaurant management is approached. With advanced AI-powered features like Automated CRM and instant messaging, it allows creators reservations and booking to be as easy as a single click.',
+    desc: 'Jeun Resturant is a revolutionary website that transformed the way Jeun Nigeria restaurant management was approached. With advanced AI-powered features like Automated CRM and instant messaging, it allows creators reservations and booking to be as easy as a single click.',
     subdesc:
-      'Built as a unique Software-as-a-Service app with Typescript, React, n8n and Tailwindcss.',
+      'Built as a unique web app with Typescript, React, n8n and Tailwindcss.',
     href: 'https://jeun-nigeria.vercel.app',
-    texture: '/textures/project/project1.mp4',
+    texture: '/textures/project/project2.mp4',
     logo: '/assets/project-logo1.png',
     logoStyle: {
       backgroundColor: '#2A1816',
@@ -105,43 +103,16 @@ export const myProjects = [
       },
     ],
   },
-  {
-    title: 'Lead Qualification Automation System - AI-Powered Lead Qualification Workflow In n8n via Email and Google forms',
-    desc: 'Ready to revolutionize your lead qualification process? Our AI-powered system automates the entire workflow, from initial contact to final qualification, using n8n, Email, and Google Forms. Say goodbye to manual data entry and hello to a streamlined, efficient lead management experience.',
-    subdesc:
-      'We are open to collaboration and partnership opportunities to enhance the system further. If you have ideas or expertise to contribute, we would love to hear from you. Together, we can create a more efficient and effective lead qualification process.',
-    href: '',
-    texture: '/textures/project/project2.mp4',
-    logo: '/assets/project-logo2.png',
-    logoStyle: {
-      backgroundColor: '#13202F',
-      border: '0.2px solid #17293E',
-      boxShadow: '0px 0px 60px 0px #2F6DB54D',
-    },
-    spotlight: '/assets/spotlight2.png',
-    tags: [
-      {
-        id: 1,
-        name: 'n8n',
-        path: '/assets/n8n.png',
-      },
-      
-  
-    ],
-  },
-  {
+   {
     title: 'Centi Hotels and resorts - Hotel and Resorts Website',
     desc: 'Centi Hotels and Resorts is a comprehensive Software-as-a-Service platform designed to streamline hotel management. It offers a range of features, including complex forms for guest information, automated Email notifications for bookings and updates, and an intuitive dashboard for managing reservations and customer interactions.',
     subdesc:
-      'With a focus on efficiency, Centi Hotels and Resorts integrates complex forms and Email notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-    href: '',
-    texture: '/textures/project/project3.mp4',
-    logo: '/assets/project-logo3.png',
+      'With a focus on efficiency, Centi Hotels and Resorts integrates complex forms and Email notifications, by using Emailjs.',
+    href: 'centi-hotels.vercel.app',
+    texture: '/textures/project/project1.mp4',
+    logo: '/assets/project-logo2.png',
     logoStyle: {
-      backgroundColor: '#60f5a1',
-      background:
-        'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)',
-      border: '0.2px solid rgba(208, 213, 221, 1)',
+      border: '0.2px solid #0E2D58',
       boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
     },
     spotlight: '/assets/spotlight3.png',
@@ -154,30 +125,34 @@ export const myProjects = [
       {
         id: 2,
         name: 'CSS3',
-        path: 'assets/tailwindcss.png',
+        path: 'assets/css.png',
       },
       {
         id: 3,
         name: 'Figma',
         path: '/assets/figma.png',
       },
+      {
+        id: 4,
+        name: 'Figma',
+        path: '/assets/javascript.png',
+      },
 
     ],
   },
   {
-    title: 'Project Management and Team Collaboration Automation via Slack and Supabase',
-    desc: 'Qiuck and fast answers to Frequently asked questions (FAQs) are crucial for efficient project management and team collaboration. Our system leverages Slack and Supabase to automate responses to common queries, ensuring that team members can access the information they need without delay. This automation not only saves time but also enhances productivity by allowing teams to focus on more complex tasks.',
+    title: 'Project Management and Team Collaboration Automation for EmailGen company',
+    desc: 'Quick answers to Frequently asked questions (FAQs) are crucial for efficient project management and team collaboration. Our system leverages Jira and Supabase to automate responses to common queries, ensuring that team members can access the information they need without delay. This automation not only saves time but also enhances productivity by allowing teams to focus on more complex tasks.',
     subdesc:
       'Built with n8n, Slack, and Supabase, this system is designed to streamline communication and improve workflow efficiency within teams.',
     href: '',
-    texture: '/textures/project/project4.mp4',
-    logo: '/assets/project-logo4.png',
+    texture: '/textures/project/project3.mp4',
+    logo: '/assets/n8n.png',
     logoStyle: {
-      backgroundColor: '#0E1F38',
       border: '0.2px solid #0E2D58',
       boxShadow: '0px 0px 60px 0px #2F67B64D',
     },
-    spotlight: '/assets/spotlight4.png',
+    spotlight: '/assets/spotlight2.png',
     tags: [
       {
         id: 1,
@@ -186,17 +161,56 @@ export const myProjects = [
       },
       {
         id: 2,
-        name: 'Slack',
-        path: '/assets/slack.svg',
+        name: 'Jira',
+        path: '/assets/jira.png',
       },
       {
         id: 3,
-        name: 'Supabase',
-        path: 'assets/tailwindcss.png',
+        name: 'Groq',
+        path: 'assets/groq.png',
       },
 
     ],
-  }
+  },
+  {
+    title: 'Network Security and Ethical Hacking Assessment',
+    desc: 'Full assesment of public network security acessment report with app vulnerability scanning. Operated on authorized devices',
+    subdesc:
+      'Complete consultation and solutions report. This project was done with Kali-linux, wireshark, nmap and OWASP ZAP.',
+    href: 'https://docs.google.com/document/d/1f4utsoqU9dtpAi-RmazP9Pk1HUe77q9B3BthZyQQVyE/edit?usp=sharing',
+    texture: '/textures/project/project4.mp4',
+    logo: '/assets/Profile.png',
+    logoStyle: {
+      backgroundColor: '#0E1F38',
+      border: '0.2px solid #0E2D58',
+      boxShadow: '0px 0px 60px 0px #2F67B64D',
+    },
+    spotlight: '/assets/spotlight5.png',
+    tags: [
+      {
+        id: 1,
+        name: 'Kali',
+        path: '/assets/n8n.png',
+      },
+      {
+        id: 2,
+        name: 'Wireshark',
+        path: '/assets/wireshark.png',
+      },
+      {
+        id: 3,
+        name: 'OWASP ZAP',
+        path: 'assets/owasp.jpg',
+      },
+      {
+        id: 4,
+        name: 'Kali',
+        path: 'assets/kali.png',
+      },
+
+    ],
+  },
+
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
@@ -222,12 +236,12 @@ export const workExperiences = [
     pos: 'Product Design Intern',
     duration: '2026',
     title: "Flux creative Technologies is a tech startup that specializes in tech solutions for Nigerian bussinesses. I learnt real world design concepts and skills. ",
-    icon: '/assets/flux.png',
+    icon: '/assets/flux.jpg',
     animation: 'victory',
   },
   {
     id: 2,
-    name: 'Lomaya Medical Diagnistics Sevicess',
+    name: 'Lomaya Medical Diagnostic Sevices',
     pos: 'Lead Product Designer',
     duration: '2026 - Present',
     title: "I am currently working with thier team to push thier product to the next level. I am responsible for designing and implementing new features, as well as maintaining the existing ones. I am also responsible for the overall user experience of the product.",
@@ -237,14 +251,14 @@ export const workExperiences = [
   {
     id: 3,
     name: 'Jeun Resturant Nigeria',
-    pos: 'Junior Web Developer',
+    pos: 'Web Developer',
     duration: '2026',
     title: "Jeun Resturant Nigeria is a local restaurant that I worked with to develop their online presence. I was responsible for creating and maintaining their website, ensuring it was user-friendly and effectively showcased their menu and services.",
-    icon: '/assets/jeun.png',
+    icon: '/assets/project-logo1.png',
     animation: 'salute',
   },
 
-  
+
 ];
 
 export const techStack = [
@@ -289,7 +303,7 @@ export const techStack = [
     icon: '/assets/slack.svg',
   },
   {
-    id: 9, 
+    id: 9,
     name: 'Framer',
     icon: '/assets/framer.png',
   },

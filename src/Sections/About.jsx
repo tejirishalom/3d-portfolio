@@ -21,11 +21,11 @@ const About = () => {
 
     }
     return (
-        <section className='cspace my-20 '>
-            <div className="about_tag text-white-700 sm:text-xl text-6xl">
+        <section className='c-space my-20' id="about">
+            <div className="head-text">
                 Meet Me
             </div>
-            <div className="grid xl:grid-cols-3 xsl:grid-rows-6 md:grid-cols-2 gridcols-1 gap-5 h-full">
+            <div className="grid xl:grid-cols-3 xsl:grid-rows-6 my-7 md:grid-cols-2 gridcols-1 gap-5 h-full">
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
                         <img src='/assets/Profile.png' alt='profile picture' className='w-full sm:h-[276px] h-fit object-contain' />
@@ -49,7 +49,7 @@ const About = () => {
                         <p className="grid-subtext">
                             Amongst other softwares and languages I use,
                             I am proficient in the use of Javascript,
-                            Figma, Kali Linux, n8n and lots more.....
+                            Figma, Kali Linux,Python, n8n and lots more.....
                         </p>
                     </div>
 

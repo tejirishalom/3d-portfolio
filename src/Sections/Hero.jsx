@@ -9,9 +9,14 @@ import Space from '../components/Space'
 import ReactLogo from '../components/ReactLogo'
 import Cube from '../components/Cube'
 import Rings from '../components/Ring'
-import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import About from './About'
+import Projects from './Projects'
+import Testimonials from './testimonials'
+import TechStack from './TechStack'
+import Contact from './Contact'
+import Work from './Work'
+
 
 
 const Hero = ({ onSceneReady }) => {
@@ -46,6 +51,7 @@ const Hero = ({ onSceneReady }) => {
           <directionalLight position={[10, 10, 10]} intensity={2} />
 
           <Suspense fallback={<CanvasLoader />}>
+          
             <HackerRoom
               position={sizes.deskPosition}
               rotation={[0.55, -Math.PI, 0]}
@@ -53,6 +59,8 @@ const Hero = ({ onSceneReady }) => {
               scale={sizes.deskScale}
               onReady={handleMainSceneReady}
             />
+         
+            
 
             <group>
               <ReactLogo position={sizes.reactLogoPosition}/>
@@ -69,16 +77,21 @@ const Hero = ({ onSceneReady }) => {
         </Canvas>
       </div>
     <div className="absolute bottom-7 left-0 right-0 w-full gap-5 z-0 c-space">
-      <Link to='/contact' className='w-fit bg-blue'>
+      <a href='#contact' className='w-fit bg-blue'>
           <Button name="Work with me" isBeam containerClass="sm:w-fit w-full sm:min-w-96 bg-sky-800/90" />
-      </Link>
+      </a>
       <br/>
-      <Link to='/projects'>
+      <a href='#projects'>
           <Button name='View projects' containerClass="sm:w-fit w-full sm:min-w-96 bg-inherit border border-sky-800/90" /> 
-      </Link>
+      </a>
     </div>      
     </section>
-    <About />
+    <About id="about"/>
+    <Projects />
+    <Work />
+    <Testimonials />
+    <TechStack />
+    <Contact />
     </>
     
   )

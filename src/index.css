@@ -159,7 +159,7 @@ body {
   }
 
   .tech-logo {
-    @apply w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
+    @apply w-10 h-10 rounded-md p-1 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
   }
 
   /* clients section */
@@ -168,11 +168,11 @@ body {
   }
 
   .client-review {
-    @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 bg-opacity-50;
+    @apply rounded-lg md:p-10 p-5 col-span-1 bg-blue bg-opacity-50;
   }
 
   .client-content {
-    @apply flex lg:flex-row flex-col justify-between lg:items-center items-start gap-5 mt-7;
+    @apply flex flex-col lg:flex-row justify-between lg:items-center items-start gap-5 mt-7;
   }
 
   /*  work experience section */
@@ -181,49 +181,77 @@ body {
   }
 
   .work-canvas {
-    @apply col-span-1 rounded-lg bg-black-200 border border-black-300;
+    @apply col-span-1 rounded-lg bg-blue border border-black-300;
   }
 
   .work-content {
-    @apply col-span-2 rounded-lg bg-black-200 border border-black-300;
+    @apply col-span-2 rounded-lg bg-blue border border-black-300;
   }
 
   .work-content_container {
-    @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+    @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-blue/90 rounded-lg sm:px-5 px-2.5;
   }
 
   .work-content_logo {
-    @apply rounded-3xl w-16 h-16 p-2 bg-black-600;
+    @apply rounded-3xl w-16 h-16 p-2 bg-black/90;
   }
 
   .work-content_bar {
-    @apply flex-1 w-0.5 mt-4 h-full bg-black-300 group-hover:bg-black-500 group-last:hidden;
+    @apply flex-1 w-0.5 mt-4 h-full bg-white-500 group-hover:bg-black-500 group-last:hidden;
   }
 
   /* contact section */
   .contact-container {
-    @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
+    @apply relative z-10 w-full max-w-2xl px-5 sm:px-10 py-12 sm:py-16 mt-12 rounded-2xl border border-white/10 bg-black/40 shadow-2xl backdrop-blur-sm;
+  }
+
+  .contact-intro {
+    @apply mt-3 max-w-xl text-base leading-7 text-beige-300/90 sm:text-lg;
+  }
+
+  .contact-form {
+    @apply mt-8 flex flex-col gap-5 sm:mt-10;
+  }
+
+  .field-group {
+    @apply flex flex-col gap-2;
   }
 
   .field-label {
-    @apply text-lg text-white-600;
+    @apply text-sm font-medium tracking-wide text-white-700;
   }
 
   .field-input {
-    @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+    @apply w-full rounded-xl border border-white/15 bg-blue/70 px-4 py-3 text-base text-white-800 shadow-black-200 shadow-lg outline-none transition placeholder:text-white-700/50 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20;
+  }
+
+  .field-textarea {
+    @apply min-h-36 resize-y;
   }
 
   .field-btn {
-    @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+    @apply mt-1 min-h-14 rounded-xl bg-sky-700 px-5 py-3 text-base font-semibold text-white shadow-black-200 shadow-lg transition hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-300/50 disabled:cursor-not-allowed disabled:opacity-60 sm:w-full;
   }
 
   .field-btn_arrow {
-    @apply w-2.5 h-2.5 object-contain invert brightness-0;
+    @apply h-3 w-3 object-contain invert brightness-0;
+  }
+
+  .form-status {
+    @apply rounded-lg border px-4 py-3 text-sm;
+  }
+
+  .form-status-success {
+    @apply border-green-400/30 bg-green-400/10 text-green-200;
+  }
+
+  .form-status-error {
+    @apply border-red-400/30 bg-red-400/10 text-red-200;
   }
 
   /*  footer */
   .social-icon {
-    @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
+    @apply w-12 h-12 rounded-full flex justify-center cursor-pointer items-center bg-black-300 border border-black-200;
   }
 }
 
