@@ -2,7 +2,7 @@ import { clientReviews } from "../constants/constants"
 
 const Testimonials = () => {
   return (
-    <section className='c-space my-20'>
+    <section className='c-space my-20 snap-start'>
       <h3 className='head-text'>Hear from Others I have Worked With</h3>
         <div className="client-container">
             {clientReviews.map(({id, name, review, img, position}) => (

@@ -61,7 +61,7 @@ export const clientReviews = [
     position: 'CEO, Jeun Resturant Nigeria',
     img: 'assets/review4.png',
     review:
-      'Shalom was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in frontend dev are top-notch.',
+      'Shalom was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations, ontop of that he automated our table resrvation process. His skills in frontend dev are top-notch.',
   },
 ];
 
@@ -84,7 +84,7 @@ export const myProjects = [
       {
         id: 1,
         name: 'React.js',
-        path: '/assets/react.svg',
+        path: '/assets/react.png',
       },
       {
         id: 2,
@@ -120,7 +120,7 @@ export const myProjects = [
       {
         id: 1,
         name: 'React.js',
-        path: '/assets/react.svg',
+        path: '/assets/react.png',
       },
       {
         id: 2,
@@ -270,7 +270,7 @@ export const techStack = [
   {
     id: 2,
     name: 'Next.js',
-    icon: '/assets/nextjs.svg',
+    icon: '/assets/next.jpg',
   },
   {
     id: 3,
@@ -295,21 +295,31 @@ export const techStack = [
   {
     id: 7,
     name: 'Figma',
-    icon: '/assets/figma.png',
+    icon: '/assets/figma.svg',
   },
   {
     id: 8,
     name: 'Slack',
-    icon: '/assets/slack.svg',
+    icon: '/assets/slack.png',
   },
   {
     id: 9,
     name: 'Framer',
-    icon: '/assets/framer.png',
+    icon: '/assets/framer.svg',
   },
   {
     id: 10,
     name: 'vite',
     icon: '/assets/vite.svg',
+  },
+  {
+    id: 11,
+    name: 'owasp',
+    icon: '/assets/owasp.jpg',
+  },
+  {
+    id: 12,
+    name: 'kali',
+    icon: '/assets/kali.png',
   }
 ]; 

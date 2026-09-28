@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom"
+
 const Footer = () => {
     const year = new Date().getFullYear()
   return (
     <section className="c-space pt-7 pb-3 border-t border-blue flex justify-between items-center flex-wrap gap-5">
         <div className="text-white-500 flex gap-2 cursor-pointer">
-            <p>Terms & Conditions</p>
+            <Link path='/privacy-statement' >Terms & Conditions</Link>
             <p>|</p>
-            <p>Privacy Policy</p>
+            <Link path='/privacy-statement'>Privacy Policy</Link>
         </div>
 
         <div className="flex gap-3">

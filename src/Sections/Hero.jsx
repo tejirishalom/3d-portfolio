@@ -12,7 +12,7 @@ import Rings from '../components/Ring'
 import Button from '../components/Button'
 import About from './About'
 import Projects from './Projects'
-import Testimonials from './testimonials'
+import Testimonials from './Testimonials'
 import TechStack from './TechStack'
 import Contact from './Contact'
 import Work from './Work'
@@ -32,7 +32,7 @@ const Hero = ({ onSceneReady }) => {
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet)
   return (
-    <>
+    <div className='snap-y'>
       <section className="h-[120vh] w-full flex flex-col relative overflow-hidden">
         <div className="relative z-10 w-full h-full mx-auto my-auto flex flex-col lg:mt-48 sm:mt-36 mt-20 pointer-events-none">
             <p className='sm:text-3xl text-2xl text-white-700 text-center font-generalsans'>Hi, I am Shalom <span className='waving-hand'>👋</span></p>
@@ -86,13 +86,13 @@ const Hero = ({ onSceneReady }) => {
       </a>
     </div>      
     </section>
-    <About id="about"/>
+    <About id="about" />
     <Projects />
     <Work />
     <Testimonials />
     <TechStack />
     <Contact />
-    </>
+    </div>
     
   )
 }

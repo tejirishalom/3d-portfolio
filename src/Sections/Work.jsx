@@ -10,7 +10,7 @@ const Work = () => {
   const [animationName, setAnimationName] = useState("idle")
 
   return (
-    <section className="c-space my-20">
+    <section className="c-space my-20 snap-start">
         <div className="w-full text-beige-300">
             <h3 className="head-text">My Work Experience</h3>
             <div className="work-container">

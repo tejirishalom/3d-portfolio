@@ -6,8 +6,9 @@ import Hero from "./Sections/Hero"
 import About from "./Sections/About"
 import Projects from "./Sections/Projects"
 import Contact from "./Sections/Contact"
-import Testimonials from "./Sections/testimonials"
+import Testimonials from "./Sections/Testimonials"
 import Footer from "./components/Footer"
+import PrivacyPolicy from "./components/PrivacyPolicy"
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/testimonial" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-statement" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 const Contact = () => {
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
@@ -7,6 +7,7 @@ const Contact = () => {
     name: '',
     email: '',
     message: '',
+    followup: '',
   })
 
   const handleChange = (event) => {
@@ -43,7 +44,7 @@ const Contact = () => {
         throw new Error(`Webhook request failed with status ${response.status}`)
       }
 
-      setForm({ name: '', email: '', message: '' })
+      setForm({ name: '', email: '', message: '' , followup: ''})
       setStatus({
         type: 'success',
         message: 'Thanks for reaching out. I will get back to you soon.',
@@ -109,6 +110,9 @@ const Contact = () => {
                 placeholder="I am interested in..."
               />
             </label>
+
+            <div className=""><input type="checkbox" name="followup"  value={form.followup}/><span className="field-label">I would love to recieve marketing emails from Shalom</span></div>
+            <div className=""><input type="checkbox" name="terms" id="" required/><span className='field-label'>by submmiting this form you agree to our <Link path='/privacy-statement' className=' '>Terms and conditions and privacy policy</Link> *</span></div>
 
             {status.message && (
               <p
