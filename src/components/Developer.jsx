@@ -129,6 +129,4 @@ const Developer= ({animationName ='idle', ...props}) =>{
   )
 }
 
-useGLTF.preload(developerModelPath)
-Object.values(animationPaths).forEach((path) => useFBX.preload(path))
 export default Developer
