@@ -25,7 +25,7 @@ export default function SEO({
       <meta property="og:type" content="website" />
         <meta
     property="og:image"
-    content="https://shalom-co.vercel.app/og-image.jpg"
+    content="https://shalom-co.vercel.app/og-image.png"
   />
 
   <meta name="twitter:card" content="summary_large_image" />
