@@ -10,6 +10,7 @@ import Testimonials from "./Sections/Testimonials"
 import Footer from "./components/Footer"
 import PrivacyPolicy from "./Sections/PrivacyPolicy"
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <>
+      <Analytics />
       <SpeedInsights />
       <WebsiteLoader ready={isReady} />
       <Navbar />
