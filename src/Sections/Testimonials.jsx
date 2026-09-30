@@ -1,8 +1,9 @@
 import { clientReviews } from "../constants/constants"
+import FadeUpSection from "../components/FadeUpSection"
 
 const Testimonials = () => {
   return (
-    <section className='c-space my-20 snap-start'>
+    <FadeUpSection as="section" className='c-space my-20 snap-start'>
       <h3 className='head-text'>Hear from Others I have Worked With</h3>
         <div className="client-container">
             {clientReviews.map(({id, name, review, img, position}) => (
@@ -32,7 +33,7 @@ const Testimonials = () => {
                 
             ))}
         </div>
-    </section>
+    </FadeUpSection>
   )
 }
 

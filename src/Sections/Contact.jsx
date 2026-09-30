@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import FadeUpSection from '../components/FadeUpSection'
 const Contact = () => {
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
@@ -61,7 +62,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="c-space my-20">
+    <FadeUpSection as="section" id="contact" className="c-space my-20">
       <div className="relative min-h-screen flex items-center justify-center flex-col">
         <div className="contact-container">
           <h3 className="head-text">Let's Talk</h3>
@@ -111,8 +112,8 @@ const Contact = () => {
               />
             </label>
 
-            <div className=""><input type="checkbox" name="followup"  value={form.followup}/><span className="field-label">I would love to recieve marketing emails from Shalom</span></div>
-            <div className=""><input type="checkbox" name="terms" id="" required/><span className='field-label'>by submmiting this form you agree to our <Link path='/privacy-statement' className=' '>Terms and conditions and privacy policy</Link> *</span></div>
+            <div className=" flex flex-row gap-3 justify-start items-start"><input type="checkbox" name="followup"  value={form.followup}/><span className="field-label">I would love to recieve marketing emails from Shalom</span></div>
+            <div className=" flex flex-row gap-3 justify-start items-start"><input type="checkbox" name="terms" id="" required/><span className='field-label'>by submmiting this form you agree to our <Link to='/privacy-statement' className='text-underline cursor-pointer hover:underline'>Terms and conditions and Privacy Policy</Link> *</span></div>
 
             {status.message && (
               <p
@@ -130,7 +131,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </section>
+    </FadeUpSection>
   )
 }
 

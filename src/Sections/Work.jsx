@@ -5,26 +5,36 @@ import { OrbitControls } from "@react-three/drei"
 import { Suspense } from "react"
 import CanvasLoader from "../components/CanvasLoader"
 import Developer from "../components/Developer"
+import FadeUpSection from "../components/FadeUpSection"
+import useCanvasVisibility from "../hooks/useCanvasVisibility"
+import { useMediaQuery } from "react-responsive"
 
 const Work = () => {
   const [animationName, setAnimationName] = useState("idle")
+  const { containerRef, isVisible, hasBeenVisible } = useCanvasVisibility()
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" })
 
   return (
-    <section className="c-space my-20 snap-start">
+    <FadeUpSection as="section" className="c-space my-20 snap-start">
         <div className="w-full text-beige-300">
             <h3 className="head-text">My Work Experience</h3>
             <div className="work-container">
-                <div className="work-canvas">
-                    <Canvas>
-                    <ambientLight intensity={3} />
-                    <spotLight position={[10, 10, 10]} angle={0.15} penubra={0.5} />
-                    <directionalLight position={[10,10,10]} intensity={1}/>
-                    <OrbitControls enableZoom={false} maxPolarAngle={Math.PI/2} />
-                    <Suspense fallback={<CanvasLoader/>}>
-                        <Developer animationName={animationName} position-y={-3} scale={3}/>
-                    </Suspense>
-
-                    </Canvas>
+                <div ref={containerRef} className="work-canvas">
+                    {hasBeenVisible && (
+                      <Canvas
+                        dpr={isMobile ? 1 : [1, 1.25]}
+                        frameloop={isVisible ? "always" : "never"}
+                        gl={{ antialias: !isMobile }}
+                      >
+                          <ambientLight intensity={3} />
+                          <spotLight position={[10, 10, 10]} angle={0.15} penubra={0.5} />
+                          <directionalLight position={[10,10,10]} intensity={1}/>
+                          <OrbitControls enableZoom={false} maxPolarAngle={Math.PI/2} />
+                          <Suspense fallback={<CanvasLoader/>}>
+                            <Developer animationName={animationName} position-y={-3} scale={3}/>
+                          </Suspense>
+                      </Canvas>
+                    )}
                 </div>
                 <div className="work-content">
                     <div className="sm:py-10 py-5 sm:px-5 px-2.5">
@@ -60,7 +70,7 @@ const Work = () => {
             </div>
         </div>
       
-    </section>
+    </FadeUpSection>
   )
 }
 

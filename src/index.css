@@ -5,9 +5,12 @@
 @tailwind utilities;
 
 * {
-  scroll-behavior: smooth;
   scrollbar-color: rgb(38, 91, 144);
   scrollbar-width: auto;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -79,6 +82,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .site-loader,
   .site-loader__track span {
     transition: none;

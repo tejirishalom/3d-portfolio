@@ -84,7 +84,7 @@ export const myProjects = [
       {
         id: 1,
         name: 'React.js',
-        path: '/assets/react.png',
+        path: '/assets/react.svg',
       },
       {
         id: 2,
@@ -108,7 +108,7 @@ export const myProjects = [
     desc: 'Centi Hotels and Resorts is a comprehensive Software-as-a-Service platform designed to streamline hotel management. It offers a range of features, including complex forms for guest information, automated Email notifications for bookings and updates, and an intuitive dashboard for managing reservations and customer interactions.',
     subdesc:
       'With a focus on efficiency, Centi Hotels and Resorts integrates complex forms and Email notifications, by using Emailjs.',
-    href: 'centi-hotels.vercel.app',
+    href: 'https://centi-hotels.vercel.app',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo2.png',
     logoStyle: {
@@ -120,7 +120,7 @@ export const myProjects = [
       {
         id: 1,
         name: 'React.js',
-        path: '/assets/react.png',
+        path: '/assets/react.svg',
       },
       {
         id: 2,

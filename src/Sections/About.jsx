@@ -2,26 +2,25 @@ import Globe from "react-globe.gl";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import FadeUpSection from "../components/FadeUpSection";
 
 const About = () => {
-    
     const [hasCopied, setHasCopied] = useState();
 
     const startYear = 2025;
     const currentYear = new Date().getFullYear()
     const yearsPassed = currentYear - startYear;
 
-    const handleCopy = () =>{
+    const handleCopy = () => {
         navigator.clipboard.writeText('shalomakpotaire@gmail.com')
         setHasCopied(true)
         setTimeout(() => {
             setHasCopied(false)
         }, 2000    
-    )
+    )}
 
-    }
     return (
-        <section className='c-space my-20' id="about">
+        <FadeUpSection as="section" className='c-space my-20' id="about">
             <div className="head-text">
                 Meet Me
             </div>
@@ -38,7 +37,6 @@ const About = () => {
                             Product Design and Cyber Security for Web applications.
                         </p>
                     </div>
-
                 </div>
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
@@ -52,7 +50,6 @@ const About = () => {
                             Figma, Kali Linux,Python, n8n and lots more.....
                         </p>
                     </div>
-
                 </div>
 
                 <div className='grid-container col-span-1 xl:row-span-4'>
@@ -84,15 +81,13 @@ const About = () => {
                         <Link to='/contact'>
                             <Button name="Contact Me" isBeam containerClass="w-full mt-10 bg-sky-400/90"/>
                         </Link>
-                       
                     </p>
                 </div>
-
 
                 <div className="xl:col-span-2 xl:row-span-3">
                     <div className="grid-container">
                         <img src="/assets/grid3.png" alt="mission" className="w-full sm:h-[266px] h-fit object-contain"/>
-                        <div >
+                        <div>
                             <p className="grid-headtext">
                                 My Passion for Products
                             </p>
@@ -106,22 +101,20 @@ const About = () => {
 
                 <div className="xl:col-span-1 xl:row-span-2">
                     <div className="grid-container">
-                        <img src="/assets/grid4.png" alt="email" className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top" />
+                        <img src="/assets/grid4.png" alt="email" className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"/>
                         <div className="space-y-2">
                             <p className="grid-subtext text-center">Send me an email:</p>
-                            <div className="copy-container" onClick={handleCopy}>
+                            <div className="copy-container hover:underline-offset-1" onClick={handleCopy}>
                                 <img src={hasCopied ? '/assets/tick.svg' : '/assets/copy.svg'} alt="copy" />
                                 <p className="grid-subtext">
                                     shalomakpotaire@gmail.com
                                 </p>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-        </section>
+        </FadeUpSection>
     )
 }
 

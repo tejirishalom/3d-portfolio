@@ -25,7 +25,7 @@ const Space = (props) => {
     gsap.to(spaceRef.current.position, {
       x: 0.5,
       duration: 5,
-      repeat: -0.05,
+      repeat: -1,
       yoyo: true,
       ease: 'power1.inOut',
     })

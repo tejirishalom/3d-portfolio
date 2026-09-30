@@ -129,10 +129,10 @@ const PrivacyPolicy = () => {
                 <div className="privacy-subtext gap-3">
                     <h3 className="head-text">10. Withdrawing Marketing Consent</h3>
                     <p>
-                       You can unsubscribe from our marketing communications at any time by:
+                        You can unsubscribe from our marketing communications at any time by:
                         <ul className="list-disc" >
                             <li>Request access to personal information we hold about you<br /></li>
-                            <li>Request correction of inaccurate or incomplete information<br /></li> 
+                            <li>Request correction of inaccurate or incomplete information<br /></li>
                         </ul>
                         We will process your request within a reasonable period.
 
@@ -143,26 +143,62 @@ const PrivacyPolicy = () => {
                     <p>
                         We may update this Privacy Policy from time to time to reflect changes to our website, services, technology, or applicable legal requirements.
 
-The updated version will be published on this page with a revised "Last Updated" date.
+                        The updated version will be published on this page with a revised "Last Updated" date.
                     </p>
                 </div>
-                 <div className="privacy-subtext gap-3">
+                <div className="privacy-subtext gap-3">
                     <h3 className="head-text">11. Contact </h3>
                     <p>
-                       If you have questions about this Privacy Policy or how we handle your personal information, contact: <br />
-                                               <ul className="list-disc" >
+                        If you have questions about this Privacy Policy or how we handle your personal information, contact: <br />
+                        <ul className="list-disc" >
                             <li>Email: shalomakpotaire@gmail.com</li>
-                            <li>Benin City, Edo State, Nigeria.</li> 
+                            <li>Benin City, Edo State, Nigeria.</li>
                         </ul>
                         You also have the right to lodge a complaint with the Nigeria Data Protection Commission (NDPC) where applicable.
                     </p>
                 </div>
+
+                {/* Terms and Conditions */}
+                <div className="privacy-subtext gap-3">
+                    <h3 className="head-text">Terms and Conditions</h3>
+                    <p>Last updated: 2026</p>
+                    <p>
+                        Welcome to Shalom.Co. By accessing or using this website, you agree to these Terms and Conditions. If you do not agree with them, please do not use the website.
+                    </p>
+
+                    <h4 className="font-semibold text-lg mt-4">1. About the Website</h4>
+                    <p>
+                        This website is operated by Shalom.Co and is intended to provide information about my portfolio, services, projects, and ways to contact me.
+                    </p>
+
+                    <h4 className="font-semibold text-lg mt-4">2. Use of the Website</h4>
+                    <p>You agree to use this website lawfully and responsibly. You must not:</p>
+                    <ul className="list-disc">
+                        <li>Use the website for fraudulent or unlawful activities.</li>
+                        <li>Attempt to gain unauthorized access to the website or its systems.</li>
+                        <li>Interfere with the website's operation or security.</li>
+                        <li>Submit false, misleading, or harmful information through contact forms.</li>
+                        <li>Copy, reproduce, or redistribute content without permission.</li>
+                    </ul>
+
+                    <h4 className="font-semibold text-lg mt-4">Analytics</h4>
+                    <p>
+                        We use Vercel Web Analytics to understand how visitors use this website and to improve its performance and content.
+                    </p>
+                    <p>
+                        Vercel Web Analytics may process information such as page views, referring pages, browser and device information, country or city derived from an IP address, and other website usage information. Vercel states that its Web Analytics is designed as a privacy-focused, first-party analytics service.
+                    </p>
+                    <p>
+                        We use this information for purposes such as understanding website traffic, identifying which pages are useful to visitors, and improving the website.
+                    </p>
+                    <p>
+                        We do not use analytics information to intentionally collect sensitive personal information through the website.
+                    </p>
+                    <p>
+                        For more information about how Vercel handles information, please refer to Vercel's Privacy Notice.
+                    </p>
+                </div>
             </div>
-
-
-
-
-
         </div>
 
     )

@@ -1,10 +1,11 @@
 import Carousel from "../components/Carousel"
+import FadeUpSection from "../components/FadeUpSection"
 
 const TechStack = () => {
   return (
-    <section className="snap-center c-space my-20">
+    <FadeUpSection as="section" className="snap-center c-space my-20">
       <Carousel />
-    </section>
+    </FadeUpSection>
   )
 }
 

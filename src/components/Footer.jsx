@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <section className="c-space pt-7 pb-3 border-t border-blue flex justify-between items-center flex-wrap gap-5">
         <div className="text-white-500 flex gap-2 cursor-pointer">
-            <Link path='/privacy-statement' >Terms & Conditions</Link>
+            <Link to='/privacy-statement' >Terms & Conditions</Link>
             <p>|</p>
-            <Link path='/privacy-statement'>Privacy Policy</Link>
+            <Link to='/privacy-statement'>Privacy Policy</Link>
         </div>
 
         <div className="flex gap-3">
@@ -15,7 +15,7 @@ const Footer = () => {
                 <a href="https://github.com/tejirishalom" className="social-icon">
                     <img src="/assets/github.svg" alt="github" className="w-1/2 h-1/2"/>
                 </a>
-                <a href="social-icon" className="social-icon">
+                <a href="" className="social-icon">
                  <img src="/assets/instagram.svg" alt="instagram" className="w-1/2 h-1/2"/>   
                 </a>
 
