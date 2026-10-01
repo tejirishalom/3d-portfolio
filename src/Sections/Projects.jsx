@@ -31,7 +31,7 @@ const Projects = () => {
     <>
       <SEO
         title="MY Featured Work | Shalom.Co"
-        description="View completed Projects and See for yourself."
+        description="Explore selected web development, product design, 3D, and automation projects created by Shalom Tejiri."
         canonical="https://shalom-co.vercel.app/projects"
       />
       <FadeUpSection as="section" className="c-space my-20 snap-center" id="projects">

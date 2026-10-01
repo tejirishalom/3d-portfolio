@@ -18,6 +18,7 @@ import Contact from './Contact'
 import Work from './Work'
 import FadeUpSection from '../components/FadeUpSection'
 import useCanvasVisibility from '../hooks/useCanvasVisibility'
+import SEO from '../components/SEO'
 
 
 
@@ -36,6 +37,11 @@ const Hero = ({ onSceneReady }) => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet)
   return (
     <>
+      <SEO
+        title="Shalom Tejiri | Web Developer & Product Designer"
+        description="Shalom Tejiri is a web developer and product designer in Nigeria, building digital products, 3D web experiences, and business automations."
+        canonical="https://shalom-co.vercel.app/"
+      />
       <FadeUpSection as="section" className="h-[120vh] w-full flex flex-col relative overflow-hidden">
         <div className="relative z-10 w-full h-full mx-auto my-auto flex flex-col lg:mt-48 sm:mt-36 mt-20 pointer-events-none">
             <p className='sm:text-3xl text-2xl text-white-700 text-center font-generalsans'>Hi, I am Shalom <span className='waving-hand'>👋</span></p>
@@ -46,7 +52,7 @@ const Hero = ({ onSceneReady }) => {
       <div ref={containerRef} className="absolute inset-0 z-0 my-2 w-full h-screen">
         {hasBeenVisible && (
           <Canvas
-            className='w-full h-full'
+            p me 
             camera={{ position: [0, 0, 30], fov: 36 }}
             dpr={isMobile ? 1 : [1, 1.25]}
             frameloop={isVisible ? 'always' : 'never'}

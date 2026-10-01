@@ -66,7 +66,7 @@ const Contact = () => {
     <>
       <SEO
         title="Talk to Shalom Tejiri | Shalom.Co"
-        description="Satisfied by what you see?. Great Contact me via email."
+        description="Contact Shalom Tejiri about web development, product design, 3D experiences, and business automation projects."
         canonical="https://shalom-co.vercel.app/contact"
       />
       <FadeUpSection as="section" id="contact" className="c-space my-20">

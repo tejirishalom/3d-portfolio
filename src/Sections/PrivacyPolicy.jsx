@@ -1,7 +1,14 @@
+import SEO from "../components/SEO"
+
 const PrivacyPolicy = () => {
 
     return (
         <div className="c-space my-20 text-white-800 gap-3 flex flex-col justify-center px-4">
+            <SEO
+                title="Privacy Policy | Shalom.Co"
+                description="Read the Shalom.Co privacy policy to learn how contact form and website information is handled."
+                canonical="https://shalom-co.vercel.app/privacy-statement"
+            />
             <h2 className="font-semibold text-4xl">Privacy Policy</h2>
             <p>Last Updated: 2026</p>
             <div className="content py-6 gap-3 flex flex-col ">

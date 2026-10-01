@@ -13,6 +13,7 @@ export default function SEO({
         name="description"
         content={description}
       />
+      <meta name="robots" content="index, follow" />
 
       <link
         rel="canonical"
@@ -23,13 +24,11 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content="website" />
-        <meta
-    property="og:image"
-    content="https://shalom-co.vercel.app/og-image.png"
-  />
-
-  <meta name="twitter:card" content="summary_large_image" />
-
+      <meta property="og:image" content="https://shalom-co.vercel.app/og-image.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content="https://shalom-co.vercel.app/og-image.png" />
     </Helmet>
   )
 }
