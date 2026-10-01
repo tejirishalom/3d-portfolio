@@ -17,7 +17,7 @@ const Work = () => {
   return (
     <FadeUpSection as="section" className="c-space my-20 snap-start">
         <div className="w-full text-beige-300">
-            <h3 className="head-text">My Work Experience</h3>
+            <h2 className="head-text">My Work Experience</h2>
             <div className="work-container">
                 <div ref={containerRef} className="work-canvas">
                     {hasBeenVisible && (

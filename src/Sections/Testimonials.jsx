@@ -11,7 +11,7 @@ const Testimonials = () => {
       canonical="https://shalom-co.vercel.app/testimonial"
     />
     <FadeUpSection as="section" className='c-space my-20 snap-start'>
-      <h3 className='head-text'>Hear from Others I have Worked With</h3>
+      <h2 className='head-text'>Hear from Others I have Worked With</h2>
         <div className="client-container">
             {clientReviews.map(({id, name, review, img, position}) => (
             <div key={id} className="client-review">

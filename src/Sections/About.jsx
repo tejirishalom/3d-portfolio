@@ -25,13 +25,13 @@ const About = () => {
         <>
             <SEO
                 title="Meet Shalom Tejiri | Shalom.Co"
-                description="Meet Shalom Tejiri, a web developer and product designer creating digital products, 3D web experiences, and business automations."
+                description="Meet Shalom Tejiri, a software developer and product designer creating digital products, 3D web experiences, and business automations."
                 canonical="https://shalom-co.vercel.app/about"
             />
             <FadeUpSection as="section" className='c-space my-20' id="about">
-                <div className="head-text">
+                <h2 className="head-text">
                     Meet Me
-                </div>
+                </h2>
                 <div className="grid xl:grid-cols-3 xsl:grid-rows-6 my-7 md:grid-cols-2 gridcols-1 gap-5 h-full">
                     <div className="col-span-1 xl:row-span-3">
                         <div className="grid-container">

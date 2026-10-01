@@ -35,7 +35,7 @@ const Projects = () => {
         canonical="https://shalom-co.vercel.app/projects"
       />
       <FadeUpSection as="section" className="c-space my-20 snap-center" id="projects">
-        <p className="head-text">My Work</p>
+        <h2 className="head-text">My Work</h2>
 
         <div className="grid lg:grid-cols-2 items-center grid-cols-1 mt-12 gap-5  w-full">
           <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">

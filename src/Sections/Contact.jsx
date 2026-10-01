@@ -72,7 +72,7 @@ const Contact = () => {
       <FadeUpSection as="section" id="contact" className="c-space my-20">
         <div className="relative min-h-screen flex items-center justify-center flex-col">
           <div className="contact-container">
-            <h3 className="head-text">Let's Talk</h3>
+            <h2 className="head-text">Let's Talk</h2>
             <p className="contact-intro">
               Whether you are looking to build/improve your products or you want me to intern/work with you, Lets talk.
               I am ready to help.
