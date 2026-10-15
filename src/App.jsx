@@ -11,6 +11,7 @@ import Footer from "./components/Footer"
 import PrivacyPolicy from "./Sections/PrivacyPolicy"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
+import Github from "./Sections/GithubandProjects"
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/testimonial" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-statement" element={<PrivacyPolicy />} />
+        <Route path="/github" element={<Github />} />
       </Routes>
       <Footer />
     </>

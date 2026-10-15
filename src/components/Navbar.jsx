@@ -38,11 +38,19 @@ const Navbar = () => {
       </div>
      </div>
     <div className={`nav-sidebar ${isOpen ? "max-h-screen opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 bg-blue-900/90 pointer-events-none"} cursor-pointer rounded-lg shadow-md`}>
-        <nav className="p-5 bg-blue rounded-lg backdrop-blur-sm shadow-md">
+        <nav className="p-5 bg-blue rounded-lg backdrop-blur-sm shadow-md" onClick={(e) => e.stopPropagation()}>
           <NavItems />
         </nav>
-        
+       
      </div>
+     {/* Full-screen backdrop overlay that closes the menu when clicking the screen */}
+     {isOpen && (
+       <div
+         onClick={toggleMenu}
+         className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+         aria-label="Close menu"
+       />
+     )}
    </header>
  )
 }
