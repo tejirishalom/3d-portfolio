@@ -21,10 +21,37 @@ const mimeTypes = {
   '.webp': 'image/webp',
 }
 
+const seoTagPattern = /<(?:meta\b[^>]*>|link\b[^>]*>)/gi
+
 const indexHtml = await readFile(path.join(outputDirectory, 'index.html'))
+
+function removeUnmanagedSeoTags(html) {
+  return html.replace(seoTagPattern, (tag) => {
+    if (/\bdata-rh=["']true["']/i.test(tag)) return tag
+
+    const name = tag.match(/\bname=["']([^"']+)["']/i)?.[1]?.toLowerCase()
+    const property = tag.match(/\bproperty=["']([^"']+)["']/i)?.[1]?.toLowerCase()
+    const rel = tag.match(/\brel=["']([^"']+)["']/i)?.[1]?.toLowerCase()
+
+    const isSeoMeta = (
+      name === 'description' ||
+      name === 'robots' ||
+      name?.startsWith('twitter:') ||
+      property?.startsWith('og:')
+    )
+
+    return isSeoMeta || rel === 'canonical' ? '' : tag
+  })
+}
 
 const server = createServer(async (request, response) => {
   const pathname = new URL(request.url, 'http://localhost').pathname
+
+  if (pathname.startsWith('/_vercel/')) {
+    response.writeHead(204)
+    response.end()
+    return
+  }
 
   if (routeSet.has(pathname)) {
     response.writeHead(200, { 'content-type': 'text/html; charset=utf-8' })
@@ -99,19 +126,40 @@ try {
     console.error('Prerender request failed:', request.url(), request.failure()?.errorText)
   })
 
+  await page.goto(`${origin}/`, { waitUntil: 'domcontentloaded', timeout: 120000 })
+
   for (const route of siteRoutes) {
     const expectedCanonical = new URL(route, 'https://shalom-co.vercel.app').href
 
-    await page.goto(`${origin}${route}`, { waitUntil: 'domcontentloaded' })
-    await page.waitForFunction(
-      ({ canonical }) =>
-        document.documentElement.dataset.appMounted === 'true' &&
-        document.querySelector('link[rel="canonical"]')?.href === canonical,
-      { timeout: 30000 },
-      { canonical: expectedCanonical },
-    )
+    if (route !== '/') {
+      await page.evaluate((pathname) => {
+        window.history.pushState({}, '', pathname)
+        window.dispatchEvent(new PopStateEvent('popstate'))
+      }, route)
+    }
 
-    const html = await page.content()
+    try {
+      await page.waitForFunction(
+        ({ canonical }) =>
+          document.documentElement.dataset.appMounted === 'true' &&
+          [...document.querySelectorAll('link[rel="canonical"]')]
+            .some((link) => link.href === canonical),
+        { timeout: 30000 },
+        { canonical: expectedCanonical },
+      )
+    } catch (error) {
+      const state = await page.evaluate(() => ({
+        url: location.href,
+        mounted: document.documentElement.dataset.appMounted,
+        canonical: document.querySelector('link[rel="canonical"]')?.href,
+        title: document.title,
+        text: document.querySelector('#root')?.innerText?.slice(0, 300),
+      }))
+      console.error(`Prerender did not reach route "${route}":`, state)
+      throw error
+    }
+
+    const html = removeUnmanagedSeoTags(await page.content())
     const routeDirectory = route === '/'
       ? outputDirectory
       : path.join(outputDirectory, route.slice(1))
