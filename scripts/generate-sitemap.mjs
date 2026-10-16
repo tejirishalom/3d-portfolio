@@ -2,6 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SitemapStream, streamToPromise } from 'sitemap'
+import { siteRoutes } from '../src/constants/siteRoutes.js'
 
 const defaultSiteUrl = 'https://shalom-co.vercel.app'
 const siteUrl = new URL(process.env.SITE_URL || defaultSiteUrl)
@@ -18,18 +19,9 @@ if (
 }
 
 const hostname = siteUrl.origin
-const routes = [
-  '/',
-  '/about',
-  '/projects',
-  '/testimonial',
-  '/contact',
-  '/privacy-statement',
-]
-
 const sitemap = new SitemapStream({ hostname })
 
-for (const route of routes) {
+for (const route of siteRoutes) {
   sitemap.write({ url: route })
 }
 

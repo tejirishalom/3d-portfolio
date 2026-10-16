@@ -23,6 +23,13 @@ const App = () => {
     window.scrollTo(0, 0)
   }, [pathname])
 
+  useEffect(() => {
+    document.documentElement.dataset.appMounted = "true"
+    return () => {
+      delete document.documentElement.dataset.appMounted
+    }
+  }, [])
+
   const handleSceneReady = useCallback(() => {
     setSceneReady(true)
   }, [])
