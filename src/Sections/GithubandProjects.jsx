@@ -6,7 +6,6 @@ import CanvasLoader from "../components/CanvasLoader"
 import FadeUpSection from "../components/FadeUpSection"
 import Space from "../components/Space"
 import useCanvasVisibility from "../hooks/useCanvasVisibility"
-import SEO from "../components/SEO"
 
 const Github = () => {
   const { containerRef, isVisible, hasBeenVisible } = useCanvasVisibility()
@@ -14,11 +13,6 @@ const Github = () => {
 
   return (
     <>
-      <SEO
-        title="GitHub Projects | Shalom Tejiri"
-        description="Explore Shalom Tejiri's open-source work and software development projects on GitHub."
-        canonical="https://shalom-co.vercel.app/github"
-      />
       <FadeUpSection as="section" className="relative flex h-[120vh] w-full flex-col overflow-hidden">
         <div className="relative z-10 mx-auto my-auto flex h-full w-full flex-col items-center justify-center gap-8 px-4 text-center pointer-events-none">
           <p className="font-generalsans text-2xl text-white-700 sm:text-3xl">

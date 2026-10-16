@@ -2,8 +2,9 @@ import { createServer } from 'node:http'
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import puppeteer from 'puppeteer'
-import { siteRoutes } from '../src/constants/siteRoutes.js'
+import chromium from '@sparticuz/chromium'
+import puppeteer from 'puppeteer-core'
+import { sitePages, siteRoutes } from '../src/constants/siteRoutes.js'
 
 const projectDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const outputDirectory = path.join(projectDirectory, 'dist')
@@ -21,13 +22,13 @@ const mimeTypes = {
   '.webp': 'image/webp',
 }
 
-const seoTagPattern = /<(?:meta\b[^>]*>|link\b[^>]*>)/gi
+const seoTagPattern = /<(?:title\b[^>]*>[\s\S]*?<\/title>|meta\b[^>]*>|link\b[^>]*>)/gi
 
 const indexHtml = await readFile(path.join(outputDirectory, 'index.html'))
 
-function removeUnmanagedSeoTags(html) {
+function cleanSeoTags(html) {
   return html.replace(seoTagPattern, (tag) => {
-    if (/\bdata-rh=["']true["']/i.test(tag)) return tag
+    if (/^<title\b/i.test(tag)) return ''
 
     const name = tag.match(/\bname=["']([^"']+)["']/i)?.[1]?.toLowerCase()
     const property = tag.match(/\bproperty=["']([^"']+)["']/i)?.[1]?.toLowerCase()
@@ -42,6 +43,38 @@ function removeUnmanagedSeoTags(html) {
 
     return isSeoMeta || rel === 'canonical' ? '' : tag
   })
+}
+
+function escapeHtml(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+function createSeoMarkup(route, page) {
+  const canonical = new URL(route, 'https://shalom-co.vercel.app').href
+  const image = 'https://shalom-co.vercel.app/og-image.png'
+  const title = escapeHtml(page.title)
+  const description = escapeHtml(page.description)
+
+  return [
+    `<title>${title}</title>`,
+    `<meta name="description" content="${description}">`,
+    '<meta name="robots" content="index, follow">',
+    `<link rel="canonical" href="${canonical}">`,
+    `<meta property="og:title" content="${title}">`,
+    `<meta property="og:description" content="${description}">`,
+    `<meta property="og:url" content="${canonical}">`,
+    '<meta property="og:type" content="website">',
+    `<meta property="og:image" content="${image}">`,
+    '<meta name="twitter:card" content="summary_large_image">',
+    `<meta name="twitter:title" content="${title}">`,
+    `<meta name="twitter:description" content="${description}">`,
+    `<meta name="twitter:image" content="${image}">`,
+  ].join('\n')
 }
 
 const server = createServer(async (request, response) => {
@@ -100,10 +133,57 @@ const server = createServer(async (request, response) => {
   }
 })
 
-const browser = await puppeteer.launch({
-  args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  headless: true,
-})
+async function launchBrowser() {
+  // On Vercel / Linux, full puppeteer's Chrome needs system libs
+  // (libnspr4.so, etc.) that are not installed, causing exit code 127.
+  // @sparticuz/chromium ships a serverless-compatible binary instead.
+  const isServerless = Boolean(process.env.VERCEL) || process.platform === 'linux'
+
+  if (isServerless) {
+    const executablePath = await chromium.executablePath()
+    return puppeteer.launch({
+      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      defaultViewport: chromium.defaultViewport,
+      executablePath,
+      headless: chromium.headless,
+    })
+  }
+
+  // Local dev (Windows/macOS): use the installed Chrome instead of
+  // downloading Chromium, so `npm run build` works without extra setup.
+  return puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    channel: 'chrome',
+    headless: true,
+  })
+}
+
+async function writeStaticFallback(reason) {
+  console.warn(`Prerender browser unavailable, using static fallback: ${reason}`)
+  const baseHtml = cleanSeoTags(indexHtml.toString())
+
+  for (const route of siteRoutes) {
+    const html = baseHtml.replace(
+      '</head>',
+      `${createSeoMarkup(route, sitePages[route])}\n</head>`,
+    )
+    const routeDirectory = route === '/'
+      ? outputDirectory
+      : path.join(outputDirectory, route.slice(1))
+
+    await mkdir(routeDirectory, { recursive: true })
+    await writeFile(path.join(routeDirectory, 'index.html'), html)
+    console.log(`Pre-rendered ${route} (static fallback)`)
+  }
+}
+
+let browser
+try {
+  browser = await launchBrowser()
+} catch (error) {
+  await writeStaticFallback(error?.message || error)
+  process.exit(0)
+}
 
 try {
   await new Promise((resolve, reject) => {
@@ -129,8 +209,6 @@ try {
   await page.goto(`${origin}/`, { waitUntil: 'domcontentloaded', timeout: 120000 })
 
   for (const route of siteRoutes) {
-    const expectedCanonical = new URL(route, 'https://shalom-co.vercel.app').href
-
     if (route !== '/') {
       await page.evaluate((pathname) => {
         window.history.pushState({}, '', pathname)
@@ -140,17 +218,15 @@ try {
 
     try {
       await page.waitForFunction(
-        ({ canonical }) =>
-          document.documentElement.dataset.appMounted === 'true' &&
-          [...document.querySelectorAll('link[rel="canonical"]')]
-            .some((link) => link.href === canonical),
+        ({ pathname }) =>
+          document.documentElement.dataset.appPath === pathname,
         { timeout: 30000 },
-        { canonical: expectedCanonical },
+        { pathname: route },
       )
     } catch (error) {
       const state = await page.evaluate(() => ({
         url: location.href,
-        mounted: document.documentElement.dataset.appMounted,
+        renderedPath: document.documentElement.dataset.appPath,
         canonical: document.querySelector('link[rel="canonical"]')?.href,
         title: document.title,
         text: document.querySelector('#root')?.innerText?.slice(0, 300),
@@ -159,7 +235,8 @@ try {
       throw error
     }
 
-    const html = removeUnmanagedSeoTags(await page.content())
+    const html = cleanSeoTags(await page.content())
+      .replace('</head>', `${createSeoMarkup(route, sitePages[route])}\n</head>`)
     const routeDirectory = route === '/'
       ? outputDirectory
       : path.join(outputDirectory, route.slice(1))
@@ -168,9 +245,18 @@ try {
     await writeFile(path.join(routeDirectory, 'index.html'), html)
     console.log(`Pre-rendered ${route}`)
   }
+} catch (error) {
+  console.error('Browser prerender failed, falling back to static HTML:', error)
+  await writeStaticFallback(error?.message || error)
 } finally {
-  await browser.close()
-  await new Promise((resolve, reject) => {
-    server.close((error) => error ? reject(error) : resolve())
+  if (browser) {
+    await browser.close().catch(() => {})
+  }
+  await new Promise((resolve) => {
+    if (server.listening) {
+      server.close(() => resolve())
+    } else {
+      resolve()
+    }
   })
 }

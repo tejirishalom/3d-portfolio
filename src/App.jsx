@@ -12,6 +12,8 @@ import PrivacyPolicy from "./Sections/PrivacyPolicy"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 import Github from "./Sections/GithubandProjects"
+import SEO from "./components/SEO"
+import { sitePages } from "./constants/siteRoutes"
 
 
 const App = () => {
@@ -24,11 +26,8 @@ const App = () => {
   }, [pathname])
 
   useEffect(() => {
-    document.documentElement.dataset.appMounted = "true"
-    return () => {
-      delete document.documentElement.dataset.appMounted
-    }
-  }, [])
+    document.documentElement.dataset.appPath = pathname
+  }, [pathname])
 
   const handleSceneReady = useCallback(() => {
     setSceneReady(true)
@@ -40,6 +39,12 @@ const App = () => {
     <>
       <Analytics />
       <SpeedInsights />
+      {sitePages[pathname] && (
+        <SEO
+          {...sitePages[pathname]}
+          canonical={`https://shalom-co.vercel.app${pathname === "/" ? "/" : pathname}`}
+        />
+      )}
       <WebsiteLoader ready={isReady} />
       <Navbar />
       <Routes>

@@ -1,15 +1,9 @@
 import { clientReviews } from "../constants/constants"
 import FadeUpSection from "../components/FadeUpSection"
-import SEO from "../components/SEO"
 
 const Testimonials = () => {
   return (
     <>
-    <SEO
-      title="Client Testimonials | Shalom Tejiri"
-      description="Read feedback from clients and collaborators who have worked with Shalom Tejiri."
-      canonical="https://shalom-co.vercel.app/testimonial"
-    />
     <FadeUpSection as="section" className='c-space my-20 snap-start'>
       <h2 className='head-text'>Hear from Others I have Worked With</h2>
         <div className="client-container">

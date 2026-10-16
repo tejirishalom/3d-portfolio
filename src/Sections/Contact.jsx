@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import FadeUpSection from '../components/FadeUpSection'
-import SEO from '../components/SEO'
 const Contact = () => {
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
@@ -64,11 +63,6 @@ const Contact = () => {
 
   return (
     <>
-      <SEO
-        title="Talk to Shalom Tejiri | Shalom.Co"
-        description="Contact Shalom Tejiri about web development, product design, 3D experiences, and business automation projects."
-        canonical="https://shalom-co.vercel.app/contact"
-      />
       <FadeUpSection as="section" id="contact" className="c-space my-20">
         <div className="relative min-h-screen flex items-center justify-center flex-col">
           <div className="contact-container">

@@ -18,7 +18,6 @@ import Contact from './Contact'
 import Work from './Work'
 import FadeUpSection from '../components/FadeUpSection'
 import useCanvasVisibility from '../hooks/useCanvasVisibility'
-import SEO from '../components/SEO'
 
 
 
@@ -37,11 +36,6 @@ const Hero = ({ onSceneReady }) => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet)
   return (
     <>
-      <SEO
-        title="Shalom Tejiri | Web Developer & Digital Product Designer"
-        description="Shalom Tejiri is a Nigeria-based web developer and digital product designer creating websites, 3D experiences, and business automations."
-        canonical="https://shalom-co.vercel.app/"
-      />
       <FadeUpSection as="section" className="h-[120vh] w-full flex flex-col relative overflow-hidden">
         <div className="relative z-10 w-full h-full mx-auto my-auto flex flex-col lg:mt-48 sm:mt-36 mt-20 pointer-events-none">
             <p className='sm:text-3xl text-2xl text-white-700 text-center font-generalsans'>Hi, I am Shalom <span className='waving-hand'>👋</span></p>

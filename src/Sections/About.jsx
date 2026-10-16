@@ -3,7 +3,6 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import FadeUpSection from "../components/FadeUpSection";
-import SEO from "../components/SEO";
 
 const About = () => {
     const [hasCopied, setHasCopied] = useState();
@@ -23,11 +22,6 @@ const About = () => {
 
     return (
         <>
-            <SEO
-                title="Meet Shalom Tejiri | Shalom.Co"
-                description="Meet Shalom Tejiri, a software developer and product designer creating digital products, 3D web experiences, and business automations."
-                canonical="https://shalom-co.vercel.app/about"
-            />
             <FadeUpSection as="section" className='c-space my-20' id="about">
                 <h2 className="head-text">
                     Meet Me

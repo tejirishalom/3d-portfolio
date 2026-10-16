@@ -7,7 +7,6 @@ import Democomputer from "../components/Democomputer";
 import FadeUpSection from "../components/FadeUpSection";
 import useCanvasVisibility from "../hooks/useCanvasVisibility";
 import { useMediaQuery } from "react-responsive";
-import SEO from "../components/SEO";
 
 const Projects = () => {
   const [selectedProjectIndex, setselectedProjectIndex] = useState(0);
@@ -29,11 +28,6 @@ const Projects = () => {
   }
   return (
     <>
-      <SEO
-        title="MY Featured Work | Shalom.Co"
-        description="Explore selected web development, product design, 3D, and automation projects created by Shalom Tejiri."
-        canonical="https://shalom-co.vercel.app/projects"
-      />
       <FadeUpSection as="section" className="c-space my-20 snap-center" id="projects">
         <h2 className="head-text">My Work</h2>
 
